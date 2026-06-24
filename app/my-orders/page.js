@@ -30,18 +30,22 @@ export default function MyOrdersPage() {
     const now = new Date().getTime();
     
     const updatedOrders = storedOrders.map(order => {
+      // ---- FIX: Force any "Completed" to "Pending" ----
+      let status = order.status;
+      if (status === "Completed") {
+        status = "Pending";
+      }
+
+      // Auto-cancel only if status is still "Pending" and more than 15 minutes old
       const orderTime = new Date(order.orderDate).getTime();
       const minutesDiff = (now - orderTime) / (1000 * 60);
       
-      // Auto-cancel pending orders after 12 hours (720 minutes)
-      if (order.status === "Pending" && minutesDiff > 720) {
-        return { 
-          ...order, 
-          status: "Cancelled", 
-          cancelReason: "Auto-cancelled: Payment verification timed out (12 hours)" 
-        };
+      if (status === "Pending" && minutesDiff > 15) {
+        status = "Cancelled";
+        order.cancelReason = "Auto-cancelled: Payment verification timed out (15 minutes)";
       }
-      return order;
+
+      return { ...order, status };
     });
     
     localStorage.setItem("task2_orders", JSON.stringify(updatedOrders));
@@ -91,7 +95,6 @@ export default function MyOrdersPage() {
     }
   };
 
-  // Generate a fallback order ID if missing
   const generateOrderId = (index) => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let result = 'BXP-';
@@ -101,10 +104,18 @@ export default function MyOrdersPage() {
     return result;
   };
 
+  const formatOrderDate = (orderDate) => {
+    if (!orderDate) return { date: "24 Jun 2026", time: "12:59 pm" };
+    const d = new Date(orderDate);
+    if (isNaN(d)) return { date: "24 Jun 2026", time: "12:59 pm" };
+    const date = d.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+    const time = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    return { date, time };
+  };
+
   return (
     <div className="min-h-screen bg-black text-white font-sans p-3 sm:p-4">
       <div className="max-w-3xl mx-auto">
-        {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <Link href="/" className="p-2 rounded-lg hover:bg-white/10 transition">
@@ -122,12 +133,10 @@ export default function MyOrdersPage() {
           </button>
         </div>
 
-        {/* Orders Count */}
         <div className="text-sm text-gray-400 mb-4">
           {orders.length} order{orders.length !== 1 ? 's' : ''}
         </div>
 
-        {/* Orders List */}
         {orders.length === 0 ? (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -148,13 +157,11 @@ export default function MyOrdersPage() {
           <div className="space-y-4">
             <AnimatePresence>
               {orders.map((order, index) => {
-                // Fallback values if order data missing
+                const { date: orderDateStr, time: orderTimeStr } = formatOrderDate(order.orderDate);
                 const orderId = order.orderId || generateOrderId(index);
                 const limit = order.cardLimit || "$285";
                 const expiry = order.cardExpiry || "09/2029";
                 const utr = order.utr || "56666666666666666666";
-                const orderDate = order.date || "24 Jun 2026";
-                const orderTime = order.time || "12:59 pm";
                 const cardType = order.cardType || "VISA";
                 const price = order.price || "₹700";
                 const status = order.status || "Pending";
@@ -175,7 +182,6 @@ export default function MyOrdersPage() {
                     }`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-                      {/* Left: Card Type & Details */}
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
                           <span className="text-xl">
@@ -184,7 +190,7 @@ export default function MyOrdersPage() {
                           <span className="font-semibold">{cardType} · {productName}</span>
                         </div>
                         <div className="text-xs text-gray-400 mt-0.5">
-                          {orderDate}, {orderTime}
+                          {orderDateStr}, {orderTimeStr}
                         </div>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-1 mt-2 text-sm">
                           <div>
@@ -198,7 +204,6 @@ export default function MyOrdersPage() {
                         </div>
                       </div>
 
-                      {/* Right: Price, Status, UTR, Order ID */}
                       <div className="flex flex-col items-end gap-1 text-right">
                         <div className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                           {price}

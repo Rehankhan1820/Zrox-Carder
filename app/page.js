@@ -38,35 +38,37 @@ export default function HomePage() {
 
   const categories = ["visa", "mastercard", "rupay"];
 
-  const cardData = {
-    visa: [
-      { id: 1, limit: "$273", expiry: "06/2028", price: "₹600", refundable: true, inStock: true },
-      { id: 2, limit: "$285", expiry: "09/2028", price: "₹700", refundable: true, inStock: false },
-      { id: 3, limit: "$295", expiry: "06/2028", price: "₹900", refundable: true, inStock: true },
-      { id: 4, limit: "$587", expiry: "09/2028", price: "₹1200", refundable: true, inStock: true, badge: "MOST POPULAR" },
-      { id: 5, limit: "$941", expiry: "06/2028", price: "₹1850", refundable: true, inStock: true },
-      { id: 6, limit: "$1303", expiry: "09/2028", price: "₹2500", refundable: true, inStock: false },
-      { id: 7, limit: "$2303", expiry: "09/2028", price: "₹4650", refundable: true, inStock: true },
-    ],
-    mastercard: [
-      { id: 1, limit: "$273", expiry: "08/2028", price: "₹600", refundable: true, inStock: false },
-      { id: 2, limit: "$285", expiry: "11/2028", price: "₹700", refundable: true, inStock: true },
-      { id: 3, limit: "$295", expiry: "08/2028", price: "₹900", refundable: true, inStock: true },
-      { id: 4, limit: "$587", expiry: "11/2028", price: "₹1200", refundable: true, inStock: true, badge: "MOST POPULAR" },
-      { id: 5, limit: "$941", expiry: "08/2028", price: "₹1850", refundable: true, inStock: false },
-      { id: 6, limit: "$1303", expiry: "11/2028", price: "₹2500", refundable: true, inStock: true },
-      { id: 7, limit: "$2303", expiry: "11/2028", price: "₹4650", refundable: true, inStock: true },
-    ],
-    rupay: [
-      { id: 1, limit: "$273", expiry: "07/2028", price: "₹600", refundable: true, inStock: true },
-      { id: 2, limit: "$285", expiry: "10/2028", price: "₹700", refundable: true, inStock: false },
-      { id: 3, limit: "$295", expiry: "07/2028", price: "₹900", refundable: true, inStock: true },
-      { id: 4, limit: "$587", expiry: "10/2028", price: "₹1200", refundable: true, inStock: true, badge: "MOST POPULAR" },
-      { id: 5, limit: "$941", expiry: "07/2028", price: "₹1850", refundable: true, inStock: true },
-      { id: 6, limit: "$1303", expiry: "10/2028", price: "₹2500", refundable: true, inStock: false },
-      { id: 7, limit: "$2303", expiry: "10/2028", price: "₹4650", refundable: true, inStock: true },
-    ],
-  };
+const cardData = {
+  visa: [
+    { id: 1, limit: "$120", expiry: "04/2028", price: "₹499", refundable: true, inStock: true, cardsCount: 7 },
+    { id: 2, limit: "$180", expiry: "08/2028", price: "₹749", refundable: true, inStock: true, cardsCount: 12 },
+    { id: 3, limit: "$250", expiry: "12/2028", price: "₹999", refundable: true, inStock: false, cardsCount: 0 },
+    { id: 4, limit: "$350", expiry: "03/2029", price: "₹1399", refundable: true, inStock: true, cardsCount: 25, badge: "MOST POPULAR" },
+    { id: 5, limit: "$500", expiry: "07/2029", price: "₹1999", refundable: true, inStock: true, cardsCount: 30 },
+    { id: 6, limit: "$750", expiry: "11/2029", price: "₹2899", refundable: true, inStock: true, cardsCount: 16 },
+    { id: 7, limit: "$1500", expiry: "05/2030", price: "₹5499", refundable: true, inStock: false, cardsCount: 0 },
+  ],
+
+  mastercard: [
+    { id: 1, limit: "$140", expiry: "06/2028", price: "₹599", refundable: true, inStock: true, cardsCount: 10 },
+    { id: 2, limit: "$220", expiry: "09/2028", price: "₹899", refundable: true, inStock: false, cardsCount: 0 },
+    { id: 3, limit: "$320", expiry: "01/2029", price: "₹1299", refundable: true, inStock: true, cardsCount: 18 },
+    { id: 4, limit: "$450", expiry: "05/2029", price: "₹1799", refundable: true, inStock: true, cardsCount: 22, badge: "BEST VALUE" },
+    { id: 5, limit: "$700", expiry: "10/2029", price: "₹2799", refundable: true, inStock: true, cardsCount: 28 },
+    { id: 6, limit: "$1000", expiry: "02/2030", price: "₹3999", refundable: true, inStock: true, cardsCount: 35 },
+    { id: 7, limit: "$1800", expiry: "08/2030", price: "₹6999", refundable: true, inStock: false, cardsCount: 0 },
+  ],
+
+  rupay: [
+    { id: 1, limit: "₹5,000", expiry: "07/2028", price: "₹299", refundable: true, inStock: true, cardsCount: 20 },
+    { id: 2, limit: "₹10,000", expiry: "10/2028", price: "₹499", refundable: true, inStock: true, cardsCount: 18 },
+    { id: 3, limit: "₹20,000", expiry: "02/2029", price: "₹799", refundable: true, inStock: false, cardsCount: 0 },
+    { id: 4, limit: "₹35,000", expiry: "06/2029", price: "₹1199", refundable: true, inStock: true, cardsCount: 30, badge: "TOP SELLER" },
+    { id: 5, limit: "₹50,000", expiry: "09/2029", price: "₹1699", refundable: true, inStock: true, cardsCount: 22 },
+    { id: 6, limit: "₹75,000", expiry: "01/2030", price: "₹2499", refundable: true, inStock: false, cardsCount: 0 },
+    { id: 7, limit: "₹1,50,000", expiry: "07/2030", price: "₹4499", refundable: true, inStock: true, cardsCount: 12 },
+  ],
+};
 
   const getNetworkIcon = (category) => {
     const icons = { visa: "💳", mastercard: "💳", rupay: "🪙" };
@@ -96,6 +98,9 @@ export default function HomePage() {
                   alt="Task 2 Diamond"
                   className="h-14 w-14 object-contain drop-shadow-[0_0_15px_rgba(168,85,247,0.6)]"
                 />
+                <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent hidden sm:inline">
+                  Task 2 Diamond
+                </span>
               </div>
             </Link>
 
@@ -163,9 +168,6 @@ export default function HomePage() {
                     My Orders
                   </Link>
                 )}
-                <Link href="/support" className="block text-gray-300 hover:text-white transition" onClick={() => setIsMenuOpen(false)}>
-                  Support
-                </Link>
                 <div className="flex flex-col gap-2 pt-2 border-t border-white/10">
                   {isLoggedIn ? (
                     <>
@@ -208,29 +210,12 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex flex-col items-center text-center">
-
-              {/* Logo */}
+            <div className="flex justify-center mb-6">
               <img
                 src="/logo.png"
-                alt="Task 2 Diamonds"
-                className="w-24 h-24 sm:w-32 sm:h-32 object-contain mb-6 drop-shadow-2xl"
+                alt="Task 2 Diamond"
+                className="w-24 h-24 sm:w-32 sm:h-32 object-contain drop-shadow-2xl"
               />
-
-              {/* Heading */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
-                Premium Digital
-                <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Card Marketplace
-                </span>
-              </h1>
-
-              {/* Sub Heading */}
-              <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-8">
-                Buy Premium VISA, Mastercard & RuPay Cards with instant delivery,
-                refundable options and secure checkout.
-              </p>
-
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
@@ -278,10 +263,11 @@ export default function HomePage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${activeCategory === cat
-                  ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25"
-                  : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10"
-                  }`}
+                className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                  activeCategory === cat
+                    ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25"
+                    : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10"
+                }`}
               >
                 <span className="mr-2">{getNetworkIcon(cat)}</span>
                 {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -324,16 +310,19 @@ export default function HomePage() {
                         <span className="text-2xl">{getNetworkIcon(activeCategory)}</span>
                         <span className="text-xs font-medium text-gray-500 uppercase">{activeCategory}</span>
                       </div>
-                      <p className="text-sm text-gray-400 mt-1">5 Cards</p>
+                      <p className="text-sm text-gray-400 mt-1">
+                        {card.inStock ? `${card.cardsCount} Cards` : "0 Cards"}
+                      </p>
                     </div>
                     <div className="flex items-center gap-2">
                       {card.refundable && (
                         <span className="text-xs text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full">Refundable</span>
                       )}
-                      <span className={`text-xs px-2 py-0.5 rounded-full ${card.inStock
-                        ? "text-emerald-400 bg-emerald-400/10"
-                        : "text-red-400 bg-red-400/10"
-                        }`}>
+                      <span className={`text-xs px-2 py-0.5 rounded-full ${
+                        card.inStock
+                          ? "text-emerald-400 bg-emerald-400/10"
+                          : "text-red-400 bg-red-400/10"
+                      }`}>
                         {card.inStock ? "In Stock" : "Out of Stock"}
                       </span>
                     </div>
@@ -359,10 +348,11 @@ export default function HomePage() {
                   <button
                     onClick={() => handleBuyNow(card, activeCategory)}
                     disabled={!card.inStock}
-                    className={`w-full mt-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${card.inStock
-                      ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:shadow-lg hover:shadow-purple-500/30"
-                      : "bg-gray-700 text-gray-400 cursor-not-allowed"
-                      }`}
+                    className={`w-full mt-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                      card.inStock
+                        ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:shadow-lg hover:shadow-purple-500/30"
+                        : "bg-gray-700 text-gray-400 cursor-not-allowed"
+                    }`}
                   >
                     {card.inStock ? "Buy Now" : "Out of Stock"}
                   </button>
@@ -373,18 +363,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
-      <footer className="border-t border-white/10 py-8 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-[10px]">T2</span>
-            </div>
-            <span className="text-sm font-bold text-white">Task 2 Diamond</span>
-          </div>
-          <p className="text-sm text-gray-400">© 2026 Task 2 Diamond. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }
