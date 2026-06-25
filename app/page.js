@@ -38,37 +38,43 @@ export default function HomePage() {
 
   const categories = ["visa", "mastercard", "rupay"];
 
-const cardData = {
-  visa: [
-    { id: 1, limit: "$120", expiry: "04/2028", price: "₹499", refundable: true, inStock: true, cardsCount: 7 },
-    { id: 2, limit: "$180", expiry: "08/2028", price: "₹749", refundable: true, inStock: true, cardsCount: 12 },
-    { id: 3, limit: "$250", expiry: "12/2028", price: "₹999", refundable: true, inStock: false, cardsCount: 0 },
-    { id: 4, limit: "$350", expiry: "03/2029", price: "₹1399", refundable: true, inStock: true, cardsCount: 25, badge: "MOST POPULAR" },
-    { id: 5, limit: "$500", expiry: "07/2029", price: "₹1999", refundable: true, inStock: true, cardsCount: 30 },
-    { id: 6, limit: "$750", expiry: "11/2029", price: "₹2899", refundable: true, inStock: true, cardsCount: 16 },
-    { id: 7, limit: "$1500", expiry: "05/2030", price: "₹5499", refundable: true, inStock: false, cardsCount: 0 },
-  ],
+  const cardData = {
+    visa: [
+      { id: 1, limit: "$130", expiry: "03/2029", price: "₹500", refundable: true, inStock: true, cardsCount: 2 },
 
-  mastercard: [
-    { id: 1, limit: "$140", expiry: "06/2028", price: "₹599", refundable: true, inStock: true, cardsCount: 10 },
-    { id: 2, limit: "$220", expiry: "09/2028", price: "₹899", refundable: true, inStock: false, cardsCount: 0 },
-    { id: 3, limit: "$320", expiry: "01/2029", price: "₹1299", refundable: true, inStock: true, cardsCount: 18 },
-    { id: 4, limit: "$450", expiry: "05/2029", price: "₹1799", refundable: true, inStock: true, cardsCount: 22, badge: "BEST VALUE" },
-    { id: 5, limit: "$700", expiry: "10/2029", price: "₹2799", refundable: true, inStock: true, cardsCount: 28 },
-    { id: 6, limit: "$1000", expiry: "02/2030", price: "₹3999", refundable: true, inStock: true, cardsCount: 35 },
-    { id: 7, limit: "$1800", expiry: "08/2030", price: "₹6999", refundable: true, inStock: false, cardsCount: 0 },
-  ],
+      { id: 2, limit: "$250", expiry: "08/2029", price: "₹850", refundable: true, inStock: false, cardsCount: 0 },
 
-  rupay: [
-    { id: 1, limit: "₹5,000", expiry: "07/2028", price: "₹299", refundable: true, inStock: true, cardsCount: 20 },
-    { id: 2, limit: "₹10,000", expiry: "10/2028", price: "₹499", refundable: true, inStock: true, cardsCount: 18 },
-    { id: 3, limit: "₹20,000", expiry: "02/2029", price: "₹799", refundable: true, inStock: false, cardsCount: 0 },
-    { id: 4, limit: "₹35,000", expiry: "06/2029", price: "₹1199", refundable: true, inStock: true, cardsCount: 30, badge: "TOP SELLER" },
-    { id: 5, limit: "₹50,000", expiry: "09/2029", price: "₹1699", refundable: true, inStock: true, cardsCount: 22 },
-    { id: 6, limit: "₹75,000", expiry: "01/2030", price: "₹2499", refundable: true, inStock: false, cardsCount: 0 },
-    { id: 7, limit: "₹1,50,000", expiry: "07/2030", price: "₹4499", refundable: true, inStock: true, cardsCount: 12 },
-  ],
-};
+      { id: 3, limit: "$400", expiry: "12/2029", price: "₹1250", refundable: true, inStock: true, cardsCount: 14 },
+
+      { id: 4, limit: "$600", expiry: "05/2030", price: "₹1800", refundable: true, inStock: false, cardsCount: 0, badge: "HOT DEAL" },
+
+      { id: 5, limit: "$850", expiry: "09/2030", price: "₹2600", refundable: true, inStock: true, cardsCount: 18 },
+
+      { id: 6, limit: "$1200", expiry: "02/2031", price: "₹4200", refundable: true, inStock: false, cardsCount: 0 },
+
+      { id: 7, limit: "$1800", expiry: "08/2031", price: "₹6800", refundable: true, inStock: true, cardsCount: 9 },
+    ],
+
+    mastercard: [
+      { id: 1, limit: "$120", expiry: "04/2029", price: "₹500", refundable: true, inStock: true, cardsCount: 3 },
+      { id: 2, limit: "$240", expiry: "10/2029", price: "₹950", refundable: true, inStock: false, cardsCount: 0 },
+      { id: 3, limit: "$400", expiry: "01/2030", price: "₹1450", refundable: true, inStock: true, cardsCount: 11 },
+      { id: 4, limit: "$600", expiry: "07/2030", price: "₹2250", refundable: true, inStock: false, cardsCount: 0, badge: "BEST VALUE" },
+      { id: 5, limit: "$850", expiry: "11/2030", price: "₹3400", refundable: true, inStock: true, cardsCount: 16 },
+      { id: 6, limit: "$1300", expiry: "03/2031", price: "₹5100", refundable: true, inStock: false, cardsCount: 0 },
+      { id: 7, limit: "$2200", expiry: "09/2031", price: "₹7900", refundable: true, inStock: true, cardsCount: 7 },
+    ],
+
+    rupay: [
+      { id: 1, limit: "₹9,500", expiry: "05/2029", price: "₹500", refundable: true, inStock: true, cardsCount: 4 },
+      { id: 2, limit: "₹15,000", expiry: "11/2029", price: "₹800", refundable: true, inStock: false, cardsCount: 0 },
+      { id: 3, limit: "₹30,000", expiry: "03/2030", price: "₹1300", refundable: true, inStock: true, cardsCount: 20 },
+      { id: 4, limit: "₹50,000", expiry: "08/2030", price: "₹1900", refundable: true, inStock: false, cardsCount: 0, badge: "TOP SELLER" },
+      { id: 5, limit: "₹80,000", expiry: "12/2030", price: "₹2900", refundable: true, inStock: true, cardsCount: 15 },
+      { id: 6, limit: "₹1,20,000", expiry: "04/2031", price: "₹4300", refundable: true, inStock: false, cardsCount: 0 },
+      { id: 7, limit: "₹2,00,000", expiry: "10/2031", price: "₹7200", refundable: true, inStock: true, cardsCount: 6 },
+    ],
+  };
 
   const getNetworkIcon = (category) => {
     const icons = { visa: "💳", mastercard: "💳", rupay: "🪙" };
@@ -257,17 +263,25 @@ const cardData = {
             </h2>
             <p className="text-gray-400">Choose your preferred card network</p>
           </div>
-
+          <div className="mb-8 text-center">
+            <div className="inline-block px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-emerald-500/10 border border-purple-500/30">
+              <span className="text-lg font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+                🚀 NEW STOCK UPDATE
+              </span>
+              <p className="text-gray-300 text-sm mt-1">
+                Fresh inventory has arrived. Limited stock available on selected cards.
+              </p>
+            </div>
+          </div>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                  activeCategory === cat
-                    ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25"
-                    : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10"
-                }`}
+                className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${activeCategory === cat
+                  ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25"
+                  : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10"
+                  }`}
               >
                 <span className="mr-2">{getNetworkIcon(cat)}</span>
                 {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -318,11 +332,10 @@ const cardData = {
                       {card.refundable && (
                         <span className="text-xs text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full">Refundable</span>
                       )}
-                      <span className={`text-xs px-2 py-0.5 rounded-full ${
-                        card.inStock
-                          ? "text-emerald-400 bg-emerald-400/10"
-                          : "text-red-400 bg-red-400/10"
-                      }`}>
+                      <span className={`text-xs px-2 py-0.5 rounded-full ${card.inStock
+                        ? "text-emerald-400 bg-emerald-400/10"
+                        : "text-red-400 bg-red-400/10"
+                        }`}>
                         {card.inStock ? "In Stock" : "Out of Stock"}
                       </span>
                     </div>
@@ -348,11 +361,10 @@ const cardData = {
                   <button
                     onClick={() => handleBuyNow(card, activeCategory)}
                     disabled={!card.inStock}
-                    className={`w-full mt-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      card.inStock
-                        ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:shadow-lg hover:shadow-purple-500/30"
-                        : "bg-gray-700 text-gray-400 cursor-not-allowed"
-                    }`}
+                    className={`w-full mt-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${card.inStock
+                      ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:shadow-lg hover:shadow-purple-500/30"
+                      : "bg-gray-700 text-gray-400 cursor-not-allowed"
+                      }`}
                   >
                     {card.inStock ? "Buy Now" : "Out of Stock"}
                   </button>
