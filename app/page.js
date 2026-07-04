@@ -37,44 +37,55 @@ export default function HomePage() {
 
   const categories = ["visa", "mastercard", "rupay"];
 
-  const cardData = {
-    visa: [
-      { id: 1, limit: "$130", expiry: "03/2029", price: "₹500", refundable: true, inStock: true, cardsCount: 2 },
+const cardData = {
+  visa: [
+    { id: 1, limit: "$130", expiry: "03/2029", price: "₹500", refundable: true, inStock: false, cardsCount: 0 },
 
-      { id: 2, limit: "$250", expiry: "08/2029", price: "₹850", refundable: true, inStock: false, cardsCount: 0 },
+    { id: 2, limit: "$170", expiry: "08/2029", price: "₹600", refundable: true, inStock: true, cardsCount: 12 },
 
-      { id: 3, limit: "$400", expiry: "12/2029", price: "₹1250", refundable: true, inStock: true, cardsCount: 14 },
+    { id: 3, limit: "$400", expiry: "12/2029", price: "₹1250", refundable: true, inStock: true, cardsCount: 14 },
 
-      { id: 4, limit: "$600", expiry: "05/2030", price: "₹1800", refundable: true, inStock: false, cardsCount: 0, badge: "HOT DEAL" },
+    { id: 4, limit: "$600", expiry: "05/2030", price: "₹1800", refundable: true, inStock: false, cardsCount: 0, badge: "HOT DEAL" },
 
-      { id: 5, limit: "$850", expiry: "09/2030", price: "₹2600", refundable: true, inStock: true, cardsCount: 18 },
+    { id: 5, limit: "$850", expiry: "09/2030", price: "₹2600", refundable: true, inStock: true, cardsCount: 18 },
 
-      { id: 6, limit: "$1200", expiry: "02/2031", price: "₹4200", refundable: true, inStock: false, cardsCount: 0 },
+    { id: 6, limit: "$1200", expiry: "02/2031", price: "₹4200", refundable: true, inStock: false, cardsCount: 0 },
 
-      { id: 7, limit: "$1800", expiry: "08/2031", price: "₹6800", refundable: true, inStock: true, cardsCount: 9 },
-    ],
+    { id: 7, limit: "$1800", expiry: "08/2031", price: "₹6800", refundable: true, inStock: true, cardsCount: 9 },
+  ],
 
-    mastercard: [
-      { id: 1, limit: "$120", expiry: "04/2029", price: "₹500", refundable: true, inStock: true, cardsCount: 3 },
-      { id: 2, limit: "$240", expiry: "10/2029", price: "₹950", refundable: true, inStock: false, cardsCount: 0 },
-      { id: 3, limit: "$400", expiry: "01/2030", price: "₹1450", refundable: true, inStock: true, cardsCount: 11 },
-      { id: 4, limit: "$600", expiry: "07/2030", price: "₹2250", refundable: true, inStock: false, cardsCount: 0, badge: "BEST VALUE" },
-      { id: 5, limit: "$850", expiry: "11/2030", price: "₹3400", refundable: true, inStock: true, cardsCount: 16 },
-      { id: 6, limit: "$1300", expiry: "03/2031", price: "₹5100", refundable: true, inStock: false, cardsCount: 0 },
-      { id: 7, limit: "$2200", expiry: "09/2031", price: "₹7900", refundable: true, inStock: true, cardsCount: 7 },
-    ],
+  mastercard: [
+    { id: 1, limit: "$120", expiry: "04/2029", price: "₹500", refundable: true, inStock: false, cardsCount: 0 },
 
-    rupay: [
-      { id: 1, limit: "₹9,500", expiry: "05/2029", price: "₹500", refundable: true, inStock: true, cardsCount: 4 },
-      { id: 2, limit: "₹15,000", expiry: "11/2029", price: "₹800", refundable: true, inStock: false, cardsCount: 0 },
-      { id: 3, limit: "₹30,000", expiry: "03/2030", price: "₹1300", refundable: true, inStock: true, cardsCount: 20 },
-      { id: 4, limit: "₹50,000", expiry: "08/2030", price: "₹1900", refundable: true, inStock: false, cardsCount: 0, badge: "TOP SELLER" },
-      { id: 5, limit: "₹80,000", expiry: "12/2030", price: "₹2900", refundable: true, inStock: true, cardsCount: 15 },
-      { id: 6, limit: "₹1,20,000", expiry: "04/2031", price: "₹4300", refundable: true, inStock: false, cardsCount: 0 },
-      { id: 7, limit: "₹2,00,000", expiry: "10/2031", price: "₹7200", refundable: true, inStock: true, cardsCount: 6 },
-    ],
-  };
+    { id: 2, limit: "$175", expiry: "10/2029", price: "₹600", refundable: true, inStock: true, cardsCount: 10 },
 
+    { id: 3, limit: "$400", expiry: "01/2030", price: "₹1450", refundable: true, inStock: true, cardsCount: 11 },
+
+    { id: 4, limit: "$600", expiry: "07/2030", price: "₹2250", refundable: true, inStock: false, cardsCount: 0, badge: "BEST VALUE" },
+
+    { id: 5, limit: "$850", expiry: "11/2030", price: "₹3400", refundable: true, inStock: true, cardsCount: 16 },
+
+    { id: 6, limit: "$1300", expiry: "03/2031", price: "₹5100", refundable: true, inStock: false, cardsCount: 0 },
+
+    { id: 7, limit: "$2200", expiry: "09/2031", price: "₹7900", refundable: true, inStock: true, cardsCount: 7 },
+  ],
+
+  rupay: [
+    { id: 1, limit: "₹9,500", expiry: "05/2029", price: "₹500", refundable: true, inStock: false, cardsCount: 0 },
+
+    { id: 2, limit: "₹14,500", expiry: "11/2029", price: "₹600", refundable: true, inStock: true, cardsCount: 15 },
+
+    { id: 3, limit: "₹30,000", expiry: "03/2030", price: "₹1300", refundable: true, inStock: true, cardsCount: 20 },
+
+    { id: 4, limit: "₹50,000", expiry: "08/2030", price: "₹1900", refundable: true, inStock: false, cardsCount: 0, badge: "TOP SELLER" },
+
+    { id: 5, limit: "₹80,000", expiry: "12/2030", price: "₹2900", refundable: true, inStock: true, cardsCount: 15 },
+
+    { id: 6, limit: "₹1,20,000", expiry: "04/2031", price: "₹4300", refundable: true, inStock: false, cardsCount: 0 },
+
+    { id: 7, limit: "₹2,00,000", expiry: "10/2031", price: "₹7200", refundable: true, inStock: true, cardsCount: 6 },
+  ],
+};
   const getNetworkIcon = (category) => {
     const icons = { visa: "💳", mastercard: "💳", rupay: "🪙" };
     return icons[category] || "💳";
@@ -92,7 +103,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
-      {/* ===== NAVBAR ===== */}
+   
       <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur-lg border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
